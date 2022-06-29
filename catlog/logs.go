@@ -2,7 +2,6 @@ package catLog
 
 import (
 	"fmt"
-	"github.com/shiena/ansicolor"
 	"io/ioutil"
 	"os"
 	"path"
@@ -11,6 +10,8 @@ import (
 	"strconv"
 	"sync"
 	"time"
+
+	"github.com/shiena/ansicolor"
 )
 
 var logMsgPool *sync.Pool // 异步时日志缓冲
