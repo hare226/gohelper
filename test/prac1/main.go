@@ -6,7 +6,9 @@ import (
 
 func main() {
 
-	rlog.Error("我是傻逼")
-	rlog.Debug("ceui %s %d", "hello", 3)
-
+	rlog.Debug("%s %d %d", "hello", int(3))
+	rlog.Info("info")
+	rlog.Warning("warnj")
+	rlog.Error("error")
+	rlog.Panic("panic  %f", "uabi", 0.2)
 }

@@ -53,7 +53,6 @@ func genLogFile() *os.File {
 }
 
 func getNowTime() string {
-	date := formatDay()
 
 	now := time.Now()
 	h := now.Hour()
@@ -63,11 +62,21 @@ func getNowTime() string {
 
 	time := fmt.Sprintf(TimeFormat, h, m, s, ms)
 
-	return fmt.Sprintf("%s %s", date, time)
+	return fmt.Sprintf("[%s]", time)
+}
+
+func keepOneFolder(path string) string {
+	folders := strings.Split(path, Separator)
+	index := len(folders)
+	if index < 2 {
+		panic("程序工作路径过短")
+	}
+	return filepath.Join(folders[index-2], folders[index-1])
 }
 
 func getFileLine() (file string, line int) {
 	_, file, line, _ = runtime.Caller(CallerDepth)
-	file = filepath.Base(file)
+	file = keepOneFolder(file)
+
 	return
 }

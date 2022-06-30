@@ -18,14 +18,35 @@ func ShowInFile(flag bool) {
 }
 
 func Debug(msg string, a ...any) {
-	baseMsg := fmt.Sprintf(msg, a)
-	logger.genMsg(Lev_Debug, baseMsg)
+	var con string
+	if len(a) > 0 {
+		con = fmt.Sprintf(msg, a)
+	} else {
+		con = fmt.Sprintf(msg)
+	}
+	logger.genMsg(Lev_Debug, con)
 	logger.multiWrite()
 }
 
 func Info(msg string, a ...any) {
-	baseMsg := fmt.Sprintf(msg, a)
-	logger.genMsg(Lev_Info, baseMsg)
+	var con string
+	if len(a) > 0 {
+		con = fmt.Sprintf(msg, a)
+	} else {
+		con = fmt.Sprintf(msg)
+	}
+	logger.genMsg(Lev_Info, con)
+	logger.multiWrite()
+}
+
+func Warning(msg string, a ...any) {
+	var con string
+	if len(a) > 0 {
+		con = fmt.Sprintf(msg, a)
+	} else {
+		con = fmt.Sprintf(msg)
+	}
+	logger.genMsg(Lev_Warning, con)
 	logger.multiWrite()
 }
 
@@ -41,15 +62,16 @@ func Error(msg string, a ...any) {
 	logger.multiWrite()
 }
 
-func Warning(msg string, a ...any) {
-	baseMsg := fmt.Sprintf(msg, a)
-	logger.genMsg(Lev_Warning, baseMsg)
-	logger.multiWrite()
-}
-
 // todo 暂时没用
 func Panic(msg string, a ...any) {
-	baseMsg := fmt.Sprintf(msg, a)
-	logger.genMsg(Lev_Panic, baseMsg)
+
+	var con string
+	if len(a) > 0 {
+		con = fmt.Sprintf(msg, a)
+	} else {
+		con = fmt.Sprintf(msg)
+	}
+
+	logger.genMsg(Lev_Panic, con)
 	logger.multiWrite()
 }

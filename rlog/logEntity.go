@@ -26,6 +26,7 @@ func (this *LogEntity) writeToConsole(con string) {
 func (this *LogEntity) writeToFile(con string) {
 	if printToFile {
 		this.file.Write([]byte(con))
+		this.file.Write([]byte("\n"))
 	}
 }
 
