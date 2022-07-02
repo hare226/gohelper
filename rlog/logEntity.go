@@ -12,7 +12,6 @@ type LogEntity struct {
 }
 
 func (this *LogEntity) genMsg(level LogLevel, con string) {
-
 	file, line := getFileLine()
 	this.msg = fmt.Sprintf(MsgFromat, getNowTime(), level, file, line, con)
 }

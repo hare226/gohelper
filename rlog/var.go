@@ -29,3 +29,8 @@ var (
 )
 
 var logger *LogEntity
+
+func init() {
+	logger = new(LogEntity)
+	logger.file = genLogFile()
+}

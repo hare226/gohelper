@@ -53,7 +53,6 @@ func genLogFile() *os.File {
 }
 
 func getNowTime() string {
-
 	now := time.Now()
 	h := now.Hour()
 	m := now.Minute()
@@ -78,5 +77,7 @@ func getFileLine() (file string, line int) {
 	_, file, line, _ = runtime.Caller(CallerDepth)
 	file = keepOneFolder(file)
 
+	// 通过pc获取被调用的函数信息
+	// funcName = runtime.FuncForPC(pc).Name()
 	return
 }
